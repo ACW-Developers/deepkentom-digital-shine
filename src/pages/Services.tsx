@@ -6,11 +6,13 @@ import {
   Shield, 
   Zap,
   ArrowRight,
-  CheckCircle 
+  CheckCircle,
+  Sparkles,
+  Rocket
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import servicesImage from "@/assets/services-tech.jpg";
+import servicesPremium from "@/assets/services-premium.jpg";
 
 const Services = () => {
   const services = [
@@ -99,16 +101,22 @@ const Services = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/10 to-accent/5">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 text-foreground animate-fade-in">
-              Our Services
+      <section className="py-32 bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10 relative overflow-hidden">
+        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="container mx-auto px-6 relative">
+          <div className="max-w-5xl mx-auto text-center">
+            <h1 className="text-6xl md:text-8xl font-bold mb-8 text-foreground animate-fade-in">
+              Our <span className="text-shimmer">Services</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 animate-slide-in-right">
-              Comprehensive software solutions designed to accelerate your business growth 
-              and digital transformation journey.
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed animate-slide-in-right max-w-4xl mx-auto">
+              Comprehensive software solutions engineered to accelerate your business growth 
+              and digital transformation through cutting-edge innovation and unparalleled expertise.
             </p>
+            <div className="animate-scale-in">
+              <Button size="lg" variant="hero" className="text-xl px-12 py-6">
+                Explore Solutions <Sparkles className="ml-3 w-6 h-6" />
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -225,9 +233,9 @@ const Services = () => {
 
             <div className="animate-slide-in-right">
               <img 
-                src={servicesImage} 
-                alt="Technology stack visualization" 
-                className="rounded-2xl shadow-lg hover-lift"
+                src={servicesPremium} 
+                alt="Advanced technology solutions visualization" 
+                className="rounded-3xl shadow-2xl hover-glow card-elevated"
               />
             </div>
           </div>
