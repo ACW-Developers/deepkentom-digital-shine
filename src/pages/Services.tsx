@@ -1,120 +1,54 @@
-import { 
-  Code2, 
-  Smartphone, 
-  Cloud, 
-  Database, 
-  Shield, 
-  Zap,
-  ArrowRight,
-  CheckCircle,
-  Sparkles,
-  Rocket
-} from "lucide-react";
+import { Code, Smartphone, Cloud, Shield, Zap, Users, ArrowRight, Sparkles, CheckCircle, Play, Database, Globe2, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import servicesPremium from "@/assets/services-premium.jpg";
+import heroServices from "@/assets/hero-services.jpg";
+import servicesTech from "@/assets/services-tech.jpg";
+import servicesPremiun from "@/assets/services-premium.jpg";
+import featureInnovation from "@/assets/feature-innovation.jpg";
 
 const Services = () => {
-  const services = [
-    {
-      icon: <Code2 className="w-12 h-12 text-primary" />,
-      title: "Custom Software Development",
-      description: "End-to-end software solutions tailored to your specific business requirements.",
-      features: [
-        "Full-stack web applications",
-        "Desktop applications",
-        "API development & integration",
-        "Legacy system modernization"
-      ],
-      gradient: "from-blue-500 to-cyan-500"
-    },
-    {
-      icon: <Smartphone className="w-12 h-12 text-primary" />,
-      title: "Mobile App Development",
-      description: "Native and cross-platform mobile applications for iOS and Android.",
-      features: [
-        "React Native development",
-        "Native iOS & Android apps",
-        "Progressive Web Apps",
-        "Mobile UI/UX design"
-      ],
-      gradient: "from-purple-500 to-pink-500"
-    },
-    {
-      icon: <Cloud className="w-12 h-12 text-primary" />,
-      title: "Cloud Solutions",
-      description: "Scalable cloud infrastructure and migration services for modern businesses.",
-      features: [
-        "AWS & Azure deployment",
-        "Microservices architecture",
-        "DevOps & CI/CD pipelines",
-        "Cloud migration consulting"
-      ],
-      gradient: "from-green-500 to-teal-500"
-    },
-    {
-      icon: <Database className="w-12 h-12 text-primary" />,
-      title: "Data Engineering",
-      description: "Transform raw data into actionable insights with our data solutions.",
-      features: [
-        "Database design & optimization",
-        "Data warehouse solutions",
-        "Business intelligence",
-        "Analytics & reporting"
-      ],
-      gradient: "from-orange-500 to-red-500"
-    },
-    {
-      icon: <Shield className="w-12 h-12 text-primary" />,
-      title: "Cybersecurity Solutions",
-      description: "Protect your digital assets with enterprise-grade security implementations.",
-      features: [
-        "Security audits & testing",
-        "Authentication systems",
-        "Data encryption solutions",
-        "Compliance & governance"
-      ],
-      gradient: "from-indigo-500 to-purple-500"
-    },
-    {
-      icon: <Zap className="w-12 h-12 text-primary" />,
-      title: "System Integration",
-      description: "Seamlessly connect your existing systems and third-party services.",
-      features: [
-        "API integrations",
-        "ERP system connections",
-        "Payment gateway setup",
-        "Third-party service integration"
-      ],
-      gradient: "from-yellow-500 to-orange-500"
-    }
-  ];
-
-  const process = [
-    { step: "01", title: "Discovery", description: "We analyze your requirements and business goals" },
-    { step: "02", title: "Planning", description: "Strategic planning and technical architecture design" },
-    { step: "03", title: "Development", description: "Agile development with regular progress updates" },
-    { step: "04", title: "Deployment", description: "Smooth deployment and comprehensive testing" },
-    { step: "05", title: "Support", description: "Ongoing maintenance and technical support" }
-  ];
-
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       {/* Hero Section */}
-      <section className="py-32 bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10 relative overflow-hidden">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div className="container mx-auto px-6 relative">
-          <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-6xl md:text-8xl font-bold mb-8 text-foreground animate-fade-in">
-              Our <span className="text-shimmer">Services</span>
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url(${heroServices})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-background/50 via-primary/20 to-accent/30"></div>
+        </div>
+        
+        <div className="relative z-10 container mx-auto px-6 text-center">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="animate-fade-in">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+                <Zap className="w-4 h-4 mr-2 animate-pulse" />
+                Full-Stack Solutions
+              </span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-fade-in animate-stagger-1">
+              <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+                Comprehensive Tech
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-shimmer">
+                Services & Solutions
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed animate-slide-in-right max-w-4xl mx-auto">
-              Comprehensive software solutions engineered to accelerate your business growth 
-              and digital transformation through cutting-edge innovation and unparalleled expertise.
+            
+            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in animate-stagger-2">
+              From initial concept to final deployment and beyond - we provide end-to-end technology services 
+              that drive innovation and accelerate your business growth.
             </p>
-            <div className="animate-scale-in">
-              <Button size="lg" variant="hero" className="text-xl px-12 py-6">
-                Explore Solutions <Sparkles className="ml-3 w-6 h-6" />
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in animate-stagger-3">
+              <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white px-8 py-4 text-lg hover-glow group">
+                <span>Start Your Project</span>
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </Button>
+              <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-primary/30 hover:bg-primary/10 group">
+                <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                <span>View Case Studies</span>
               </Button>
             </div>
           </div>
@@ -122,142 +56,210 @@ const Services = () => {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 bg-background">
+      <section className="py-24 bg-gradient-to-b from-background to-muted/20">
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {services.map((service, index) => (
-              <Card 
+          <div className="text-center mb-16 animate-fade-in">
+            <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+              What We Offer
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                Complete Digital Solutions
+              </span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Comprehensive services designed to transform your business and accelerate your digital journey
+            </p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {[
+              {
+                icon: Code,
+                title: "Custom Software Development",
+                description: "End-to-end software solutions tailored to your specific business requirements and goals.",
+                features: ["Full-stack web applications", "Desktop applications", "API development & integration", "Legacy system modernization"],
+                image: servicesTech,
+                gradient: "from-primary/20 to-accent/20"
+              },
+              {
+                icon: Smartphone,
+                title: "Mobile App Development",
+                description: "Native and cross-platform mobile applications that deliver exceptional user experiences.",
+                features: ["React Native development", "Native iOS & Android apps", "Progressive Web Apps", "Mobile UI/UX design"],
+                image: servicesPremiun,
+                gradient: "from-accent/20 to-secondary/20"
+              },
+              {
+                icon: Cloud,
+                title: "Cloud Solutions & DevOps",
+                description: "Scalable cloud infrastructure and automated deployment pipelines for modern applications.",
+                features: ["AWS & Azure deployment", "Microservices architecture", "DevOps & CI/CD pipelines", "Cloud migration consulting"],
+                image: featureInnovation,
+                gradient: "from-secondary/20 to-primary/20"
+              },
+              {
+                icon: Database,
+                title: "Data Engineering & Analytics",
+                description: "Transform raw data into actionable insights with our advanced data solutions.",
+                features: ["Database design & optimization", "Data warehouse solutions", "Business intelligence", "Analytics & reporting"],
+                image: servicesTech,
+                gradient: "from-primary/20 to-accent/20"
+              },
+              {
+                icon: Shield,
+                title: "Cybersecurity Solutions",
+                description: "Protect your digital assets with enterprise-grade security implementations.",
+                features: ["Security audits & testing", "Authentication systems", "Data encryption solutions", "Compliance & governance"],
+                image: servicesPremiun,
+                gradient: "from-accent/20 to-secondary/20"
+              },
+              {
+                icon: Zap,
+                title: "AI & Machine Learning",
+                description: "Intelligent systems that learn, adapt, and provide predictive insights for your business.",
+                features: ["Custom AI models", "Natural language processing", "Computer vision solutions", "Predictive analytics"],
+                image: featureInnovation,
+                gradient: "from-secondary/20 to-primary/20"
+              }
+            ].map((service, index) => (
+              <div 
                 key={index} 
-                className="hover-lift border-0 bg-card/50 backdrop-blur-sm overflow-hidden group"
+                className="group relative bg-card/50 backdrop-blur-sm rounded-2xl overflow-hidden hover-lift border border-border/50 animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <CardHeader className="pb-4">
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="p-3 bg-primary/10 rounded-xl group-hover:scale-110 transition-smooth">
-                      {service.icon}
+                <div className="relative h-48 overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} group-hover:opacity-80 transition-opacity duration-300`} />
+                  <div className="absolute top-4 left-4">
+                    <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center">
+                      <service.icon className="w-6 h-6 text-white" />
                     </div>
-                    <CardTitle className="text-2xl text-foreground">
-                      {service.title}
-                    </CardTitle>
                   </div>
-                  <p className="text-muted-foreground text-lg">
+                </div>
+                
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
                     {service.description}
                   </p>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3 mb-6">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center text-muted-foreground">
-                        <CheckCircle className="w-5 h-5 text-primary mr-3 flex-shrink-0" />
+                  
+                  <ul className="space-y-2 mb-6">
+                    {service.features.map((feature, i) => (
+                      <li key={i} className="flex items-center text-sm text-muted-foreground">
+                        <CheckCircle className="w-4 h-4 text-primary mr-2 flex-shrink-0" />
                         {feature}
                       </li>
                     ))}
                   </ul>
-                  <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-smooth">
+                  
+                  <Button variant="outline" className="w-full group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                     Learn More <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-foreground">Our Process</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A proven methodology that ensures project success from concept to deployment.
+      <section className="py-24 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 relative overflow-hidden">
+        <div className="absolute top-20 left-20 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+        
+        <div className="container mx-auto px-6 relative">
+          <div className="text-center mb-16 animate-fade-in">
+            <span className="inline-block px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
+              Our Process
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">
+                Proven Development Methodology
+              </span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              A structured yet flexible approach that ensures project success from concept to deployment
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-5 gap-6">
-              {process.map((phase, index) => (
-                <div 
-                  key={index} 
-                  className="text-center animate-fade-in"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="w-16 h-16 bg-primary-gradient rounded-full flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+          <div className="grid md:grid-cols-5 gap-8 max-w-6xl mx-auto">
+            {[
+              { step: "01", title: "Discovery", description: "We analyze your requirements and business goals", icon: Users },
+              { step: "02", title: "Planning", description: "Strategic planning and technical architecture design", icon: Globe2 },
+              { step: "03", title: "Development", description: "Agile development with regular progress updates", icon: Code },
+              { step: "04", title: "Testing", description: "Comprehensive testing and quality assurance", icon: CheckCircle },
+              { step: "05", title: "Deployment", description: "Smooth deployment and ongoing support", icon: Cpu }
+            ].map((phase, index) => (
+              <div 
+                key={index} 
+                className="text-center group animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="relative mb-6">
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center text-white font-bold text-xl mx-auto group-hover:scale-110 transition-transform duration-500 shadow-lg">
                     {phase.step}
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 text-foreground">
-                    {phase.title}
-                  </h3>
-                  <p className="text-muted-foreground">
-                    {phase.description}
-                  </p>
+                  {index < 4 && (
+                    <div className="absolute top-1/2 left-full w-full h-0.5 bg-gradient-to-r from-primary/30 to-transparent transform -translate-y-1/2 hidden md:block"></div>
+                  )}
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Technology Stack */}
-      <section className="py-20 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
-            <div>
-              <h2 className="text-4xl font-bold mb-6 text-foreground animate-fade-in">
-                Modern Technology Stack
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8 animate-slide-in-right">
-                We leverage cutting-edge technologies and industry best practices to 
-                build robust, scalable, and future-proof solutions.
-              </p>
-              
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
-                {[
-                  "React", "TypeScript", "Node.js", "Python", 
-                  "AWS", "Docker", "PostgreSQL", "MongoDB",
-                  "Kubernetes", "GraphQL", "Redis", "Elasticsearch"
-                ].map((tech, index) => (
-                  <div 
-                    key={index}
-                    className="px-3 py-2 bg-primary/10 text-primary rounded-lg text-center text-sm font-medium hover-lift"
-                    style={{ animationDelay: `${index * 0.05}s` }}
-                  >
-                    {tech}
-                  </div>
-                ))}
+                
+                <div className="p-3 bg-primary/10 rounded-lg inline-flex mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <phase.icon className="w-6 h-6 text-primary" />
+                </div>
+                
+                <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                  {phase.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {phase.description}
+                </p>
               </div>
-
-              <Button size="lg" className="bg-primary-gradient hover:opacity-90 transition-smooth">
-                Discuss Your Project <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-            </div>
-
-            <div className="animate-slide-in-right">
-              <img 
-                src={servicesPremium} 
-                alt="Advanced technology solutions visualization" 
-                className="rounded-3xl shadow-2xl hover-glow card-elevated"
-              />
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-primary-gradient text-white">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-6">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-xl mb-8 text-gray-200 max-w-2xl mx-auto">
-            Let's discuss how our expertise can help bring your vision to life. 
-            Get in touch for a free consultation.
-          </p>
-          <Button 
-            size="lg" 
-            className="bg-white text-primary hover:bg-gray-100 transition-smooth text-lg px-8 py-4"
-          >
-            Get Free Consultation <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+      <section className="py-24 bg-gradient-to-r from-primary via-accent to-primary text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-accent/90 to-primary/90"></div>
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <div className="max-w-4xl mx-auto space-y-8">
+            <div className="animate-fade-in">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-medium mb-6">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Ready to Transform Your Business?
+              </span>
+            </div>
+            
+            <h2 className="text-4xl md:text-6xl font-bold leading-tight animate-fade-in animate-stagger-1">
+              Let's Build Your
+              <span className="block text-shimmer">Next Success Story</span>
+            </h2>
+            
+            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed animate-fade-in animate-stagger-2">
+              Join hundreds of successful projects. Get a free consultation and discover how we can 
+              accelerate your digital transformation journey.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in animate-stagger-3">
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90 px-8 py-4 text-lg font-semibold hover-glow">
+                <span>Get Free Consultation</span>
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white/30 text-white hover:bg-white/10">
+                <Play className="mr-2 w-5 h-5" />
+                <span>View Our Work</span>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
     </div>
