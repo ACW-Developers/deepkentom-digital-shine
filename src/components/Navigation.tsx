@@ -22,10 +22,10 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Enhanced Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="relative w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center glow-primary group-hover:scale-110 transition-all duration-300">
+            <div className="relative w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-all duration-300">
               <Sparkles className="w-5 h-5 text-white animate-pulse" />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-shimmer">
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
               Deepkentom
             </span>
           </Link>
@@ -36,17 +36,17 @@ const Navigation = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-primary/10 hover:scale-105 ${
+                className={`flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-blue-50 hover:scale-105 ${
                   isActive(item.path)
-                    ? "text-primary bg-primary/10 shadow-md"
-                    : "text-muted-foreground hover:text-primary"
+                    ? "text-blue-600 bg-blue-50 shadow-md"
+                    : "text-slate-600 hover:text-blue-600"
                 }`}
               >
                 <item.icon className="w-4 h-4" />
                 <span>{item.name}</span>
               </Link>
             ))}
-            <Button size="sm" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg glow-primary">
+            <Button size="sm" className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white transition-all duration-300 hover:scale-105 shadow-lg">
               <Sparkles className="w-4 h-4 mr-2" />
               Get Started
             </Button>
@@ -58,32 +58,42 @@ const Navigation = () => {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-6 h-6 text-blue-600" /> : <Menu className="w-6 h-6 text-blue-600" />}
           </button>
         </div>
 
-          {/* Enhanced Mobile Navigation */}
-          {isOpen && (
-            <div className="md:hidden py-6 space-y-4 animate-fade-in bg-background/95 backdrop-blur-md rounded-lg mt-4 border border-border/50 shadow-xl">
+        {/* Enhanced Mobile Navigation - Popup style without white background */}
+        {isOpen && (
+          <div className="md:hidden absolute top-20 left-4 right-4 bg-background/95 backdrop-blur-lg rounded-xl border border-blue-200/50 shadow-2xl animate-fade-in">
+            <div className="py-4 space-y-2">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.path}
-                  className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-primary/10 ${
-                    isActive(item.path) ? "text-primary bg-primary/10" : "text-muted-foreground hover:text-primary"
+                  className={`flex items-center space-x-3 px-6 py-4 mx-2 rounded-lg text-base font-medium transition-all duration-300 ${
+                    isActive(item.path) 
+                      ? "text-blue-600 bg-blue-50/80" 
+                      : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/50"
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
-                  <item.icon className="w-4 h-4" />
+                  <item.icon className="w-5 h-5" />
                   <span>{item.name}</span>
                 </Link>
               ))}
-              <Button size="sm" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all duration-300 w-full mx-4">
-                <Sparkles className="w-4 h-4 mr-2" />
-                Get Started
-              </Button>
+              <div className="px-4 pt-2 pb-4">
+                <Button 
+                  size="lg" 
+                  className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white transition-all duration-300 shadow-lg"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Sparkles className="w-5 h-5 mr-2" />
+                  Get Started
+                </Button>
+              </div>
             </div>
-          )}
+          </div>
+        )}
       </div>
     </nav>
   );

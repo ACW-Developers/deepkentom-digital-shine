@@ -11,10 +11,10 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="space-y-6 animate-fade-in">
             <Link to="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center glow-primary">
+              <div className="w-10 h-10 bg-gradient-to-r from-slate-800 via-blue-600 to-cyan-500 rounded-xl flex items-center justify-center glow-primary">
                 <span className="text-white font-bold text-xl">D</span>
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <span className="text-2xl font-bold bg-gradient-to-r from-slate-800 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
                 Deepkentom
               </span>
             </Link>
@@ -137,7 +137,7 @@ const Footer = () => {
                 placeholder="Enter your email"
                 className="px-4 py-2 rounded-lg bg-background/50 border border-border/60 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all duration-300 min-w-[250px]"
               />
-              <Button className="bg-gradient-to-r from-primary to-accent hover:opacity-90 px-6 hover-glow">
+              <Button className="bg-gradient-to-r from-slate-800 via-blue-600 to-cyan-500 hover:opacity-90 px-6 hover-glow">
                 Subscribe
               </Button>
             </div>

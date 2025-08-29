@@ -43,51 +43,55 @@ const Contact = () => {
   return (
     <div className="min-h-screen overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroContact})` }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-primary/15 to-accent/25"></div>
-        </div>
-        
-        <div className="relative z-10 container mx-auto px-6 text-center">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <div className="animate-fade-in">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
-                <MessageSquare className="w-4 h-4 mr-2 animate-pulse" />
-                Let's Connect & Collaborate
-              </span>
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-fade-in animate-stagger-1">
-              <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
-                Ready to Start Your
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-shimmer">
-                Digital Journey?
-              </span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in animate-stagger-2">
-              We're here to turn your vision into reality. Get in touch with our team of experts 
-              and let's discuss how we can transform your business through technology.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in animate-stagger-3">
-              <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white px-8 py-4 text-lg hover-glow group">
-                <span>Schedule a Call</span>
-                <Calendar className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-              </Button>
-              <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-primary/30 hover:bg-primary/10 group">
-                <MessageSquare className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Live Chat Support</span>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="relative min-h-[80vh] flex items-center justify-start overflow-hidden">
+  {/* Background Image */}
+  <div 
+    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: `url(${heroContact})` }}
+  >
+    {/* Strong Overlay Gradient */}
+    <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/60 to-transparent"></div>
+  </div>
+  
+  {/* Content */}
+  <div className="relative z-10 container mx-auto px-6 text-left">
+    <div className="max-w-4xl space-y-8">
+      {/* Badge */}
+      <div className="animate-fade-in">
+        <span className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-medium mb-6 backdrop-blur-sm">
+          <MessageSquare className="w-4 h-4 mr-2 animate-pulse" />
+          Let's Connect & Collaborate
+        </span>
+      </div>
+
+      {/* Heading */}
+      <h1 className="text-5xl md:text-7xl font-bold leading-tight text-white animate-fade-in animate-stagger-1">
+        <span className="block">Ready to Start Your</span>
+        <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
+          Digital Journey?
+        </span>
+      </h1>
+
+      {/* Subtext */}
+      <p className="text-xl md:text-2xl text-slate-100 max-w-3xl leading-relaxed animate-fade-in animate-stagger-2">
+        We're here to turn your vision into reality. Get in touch with our team of experts 
+        and let's discuss how we can transform your business through technology.
+      </p>
+
+      {/* CTA Buttons */}
+      <div className="flex flex-col sm:flex-row gap-6 items-start animate-fade-in animate-stagger-3">
+        <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-4 text-lg group transition-all duration-300 shadow-lg hover:shadow-cyan-500/30">
+          <span>Schedule a Call</span>
+          <Calendar className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+        </Button>
+        <Button size="lg" variant="outline" className="px-8 py-4 text-lg bg-white/10 border-white/30 text-white hover:bg-white/20 group backdrop-blur-sm">
+          <MessageSquare className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+          <span>Live Chat Support</span>
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Contact Form & Info Section */}
       <section className="py-24 bg-gradient-to-b from-background to-muted/20">
@@ -96,16 +100,13 @@ const Contact = () => {
             {/* Contact Information */}
             <div className="lg:col-span-1 space-y-8">
               <div className="animate-fade-in">
-                <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-4">
+                <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-500 text-sm font-medium mb-4">
                   Get In Touch
                 </span>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">
-                  Contact <span className="text-primary">Information</span>
+                  Contact <span className="text-blue-600">Information</span>
                 </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  We're here to help you bring your vision to life. Reach out through any of these channels 
-                  and let's start building something amazing together.
-                </p>
+
               </div>
 
               <div className="space-y-6">
@@ -130,32 +131,25 @@ const Contact = () => {
                     primary: "123 Tech Avenue",
                     secondary: "Innovation District, San Francisco, CA 94105",
                     description: "Our headquarters in the heart of Silicon Valley"
-                  },
-                  {
-                    icon: Globe,
-                    title: "Global Presence",
-                    primary: "Available Worldwide",
-                    secondary: "Remote collaboration specialists",
-                    description: "Serving clients across 25+ countries"
                   }
                 ].map((info, index) => (
                   <div 
                     key={index} 
-                    className="group bg-card/50 backdrop-blur-sm p-6 rounded-2xl hover-lift border border-border/50 animate-fade-in"
+                    className="group bg-card/50 backdrop-blur-sm p-6 rounded-2xl hover-lift border border-border/50 animate-fade-in transition-all duration-300 hover:border-blue-600/30"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="flex items-start space-x-4">
-                      <div className="p-3 bg-primary/10 rounded-xl group-hover:scale-110 transition-transform duration-300">
-                        <info.icon className="w-6 h-6 text-primary" />
+                      <div className="p-3 bg-gradient-to-r from-blue-600/10 to-cyan-500/10 rounded-xl group-hover:scale-110 transition-transform duration-300">
+                        <info.icon className="w-6 h-6 text-blue-600" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                        <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-blue-600 transition-colors duration-300">
                           {info.title}
                         </h3>
-                        <p className="text-primary font-medium mb-1">
+                        <p className="text-blue-600 font-medium mb-1">
                           {info.primary}
                         </p>
-                        <p className="text-primary font-medium mb-2">
+                        <p className="text-blue-600 font-medium mb-2">
                           {info.secondary}
                         </p>
                         <p className="text-sm text-muted-foreground">
@@ -170,13 +164,13 @@ const Contact = () => {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <div className="bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 p-8 hover-lift animate-slide-in-right">
+              <div className="bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 p-8 hover-lift animate-slide-in-right transition-all duration-300 hover:border-blue-600/30">
                 <div className="mb-8">
-                  <span className="inline-block px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                  <span className="inline-block px-4 py-2 rounded-full bg-gradient-to-r from-blue-600/10 to-cyan-500/10 text-blue-600 text-sm font-medium mb-4">
                     Send Message
                   </span>
                   <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                    Let's Start a <span className="text-accent">Conversation</span>
+                    Let's Start a <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Conversation</span>
                   </h3>
                   <p className="text-muted-foreground text-lg">
                     Fill out the form below and we'll get back to you within 24 hours. 
@@ -194,7 +188,7 @@ const Contact = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         required
-                        className="bg-background/50 border-border/60 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                        className="bg-background/50 border-border/60 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-300"
                         placeholder="John Doe"
                       />
                     </div>
@@ -206,7 +200,7 @@ const Contact = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         required
-                        className="bg-background/50 border-border/60 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                        className="bg-background/50 border-border/60 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-300"
                         placeholder="john@company.com"
                       />
                     </div>
@@ -220,7 +214,7 @@ const Contact = () => {
                         type="text"
                         value={formData.company}
                         onChange={handleInputChange}
-                        className="bg-background/50 border-border/60 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                        className="bg-background/50 border-border/60 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-300"
                         placeholder="Your Company"
                       />
                     </div>
@@ -232,7 +226,7 @@ const Contact = () => {
                         value={formData.subject}
                         onChange={handleInputChange}
                         required
-                        className="bg-background/50 border-border/60 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                        className="bg-background/50 border-border/60 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-300"
                         placeholder="Project Discussion"
                       />
                     </div>
@@ -246,7 +240,7 @@ const Contact = () => {
                       onChange={handleInputChange}
                       required
                       rows={6}
-                      className="bg-background/50 border-border/60 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none"
+                      className="bg-background/50 border-border/60 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition-all duration-300 resize-none"
                       placeholder="Tell us about your project requirements, timeline, budget, and any specific challenges you're facing. The more details you provide, the better we can assist you."
                     />
                   </div>
@@ -254,7 +248,7 @@ const Contact = () => {
                   <Button 
                     type="submit" 
                     size="lg" 
-                    className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white py-4 text-lg font-semibold hover-glow group"
+                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white py-4 text-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-blue-500/25 group"
                   >
                     <span>Send Message</span>
                     <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -267,18 +261,18 @@ const Contact = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-gradient-to-br from-primary/5 via-accent/5 to-secondary/5 relative overflow-hidden">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
+      <section className="py-24 bg-gradient-to-br from-blue-600/5 via-cyan-500/5 to-blue-600/5 relative overflow-hidden">
+        <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-blue-600/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-gradient-to-br from-cyan-500/10 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
         
         <div className="container mx-auto px-6 relative">
           <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16 animate-fade-in">
-              <span className="inline-block px-4 py-2 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4">
+            <div className="text-left mb-16 animate-fade-in">
+              <span className="inline-block px-4 py-2 rounded-full bg-cyan-500/10 text-cyan-500 text-sm font-medium mb-4">
                 Common Questions
               </span>
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-                Frequently Asked <span className="text-shimmer">Questions</span>
+                Frequently Asked <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Questions</span>
               </h2>
               <p className="text-xl text-muted-foreground">
                 Quick answers to help you understand our process and what to expect
@@ -314,11 +308,11 @@ const Contact = () => {
               ].map((faq, index) => (
                 <div 
                   key={index} 
-                  className="bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 p-8 hover-lift animate-fade-in"
+                  className="bg-card/50 backdrop-blur-sm rounded-2xl border border-border/50 p-8 hover-lift animate-fade-in transition-all duration-300 hover:border-blue-600/30"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <h3 className="text-xl font-semibold text-foreground mb-4 flex items-center">
-                    <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                    <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mr-3"></div>
                     {faq.question}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed pl-5">
@@ -326,42 +320,6 @@ const Contact = () => {
                   </p>
                 </div>
               ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="py-24 bg-gradient-to-r from-primary via-accent to-primary text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-accent/90 to-primary/90"></div>
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <div className="animate-fade-in">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-medium mb-6">
-                <Clock className="w-4 h-4 mr-2" />
-                Free Consultation Available
-              </span>
-            </div>
-            
-            <h2 className="text-4xl md:text-6xl font-bold leading-tight animate-fade-in animate-stagger-1">
-              Let's Build Something
-              <span className="block text-shimmer">Amazing Together</span>
-            </h2>
-            
-            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed animate-fade-in animate-stagger-2">
-              Every great project starts with a conversation. Schedule your free consultation today 
-              and discover how we can transform your vision into reality.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in animate-stagger-3">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90 px-8 py-4 text-lg font-semibold hover-glow">
-                <span>Schedule Free Consultation</span>
-                <Calendar className="ml-2 w-5 h-5" />
-              </Button>
-              <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white/30 text-white hover:bg-white/10">
-                <MessageSquare className="mr-2 w-5 h-5" />
-                <span>Start Live Chat</span>
-              </Button>
             </div>
           </div>
         </div>

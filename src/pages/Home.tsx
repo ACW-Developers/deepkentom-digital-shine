@@ -3,12 +3,60 @@ import { ArrowRight, Code2, Users, Zap, Shield, Globe, Sparkles, Play, ChevronRi
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ParticleField from "@/components/ParticleField";
-import heroImage from "@/assets/hero-global.jpg";
+import heroImage from "@/assets/office-workspace.jpg";
 import servicesTech from "@/assets/services-tech.jpg";
 import servicesPremiun from "@/assets/services-premium.jpg";
 import featureInnovation from "@/assets/feature-innovation.jpg";
 import featureSecurity from "@/assets/feature-security.jpg";
 import developmentProcess from "@/assets/team-premium.jpg";
+
+// Typing animation component
+const TypingAnimation = () => {
+  const [currentText, setCurrentText] = useState('');
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  const words = ['Digital Future', 'Online Presence', 'Innovation', 'Business Growth', 'Technology Stack'];
+  const typingSpeed = 100;
+  const deletingSpeed = 50;
+  const pauseTime = 2000;
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const currentWord = words[currentWordIndex];
+      
+      if (isDeleting) {
+        // Delete text
+        setCurrentText(currentWord.substring(0, currentIndex - 1));
+        setCurrentIndex(currentIndex - 1);
+        
+        if (currentIndex === 0) {
+          setIsDeleting(false);
+          setCurrentWordIndex((prev) => (prev + 1) % words.length);
+        }
+      } else {
+        // Type text
+        setCurrentText(currentWord.substring(0, currentIndex + 1));
+        setCurrentIndex(currentIndex + 1);
+        
+        if (currentIndex === currentWord.length) {
+          setTimeout(() => setIsDeleting(true), pauseTime);
+        }
+      }
+    };
+
+    const timer = setTimeout(handleTyping, isDeleting ? deletingSpeed : typingSpeed);
+    return () => clearTimeout(timer);
+  }, [currentIndex, currentWordIndex, isDeleting, words]);
+
+  return (
+    <span className="lg:text-6xl font-semibold ml-2 text-cyan-500 typing-animation">
+      {currentText}
+      <span className="blinking-cursor">|</span>
+    </span>
+  );
+};
 
 // Animation wrapper component
 const AnimatedSection = ({ children, className = "", delay = 0 }) => {
@@ -95,18 +143,36 @@ const testimonials = [
 const Home = () => {
   return (
     <div className="min-h-screen overflow-x-hidden bg-gradient-to-b from-slate-50 to-blue-50/30">
+      <style>{`
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+        .blinking-cursor {
+          animation: blink 1s infinite;
+          margin-left: 2px;
+        }
+        .typing-animation {
+          min-height: 1.5em;
+          display: inline-block;
+        }
+      `}</style>
+      
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-start overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroImage})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-primary/30 to-accent/20"></div>
+          {/* Blue overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 via-blue-700/30 to-blue-500/10"></div>
         </div>
+
+        {/* Particle field with bluish particles */}
         <ParticleField />
-        
+
         <div className="relative z-10 container mx-auto px-6 text-left">
-          <div className="max-w-3xl space-y-8">
+          <div className="max-w-3xl space-y-6">
             <AnimatedSection delay={100}>
               <span className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-sm font-medium mb-6">
                 <Sparkles className="w-4 h-4 mr-2 animate-pulse" />
@@ -116,18 +182,16 @@ const Home = () => {
             
             <AnimatedSection delay={200}>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-slate-800 via-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                <span className="bg-white/80 bg-clip-text text-transparent">
                   Transform Your
                 </span>
                 <br />
-                <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-                  Digital Future
-                </span>
+                <TypingAnimation />
               </h1>
             </AnimatedSection>
             
             <AnimatedSection delay={300}>
-              <p className="text-xl md:text-2xl text-slate-600 max-w-3xl leading-relaxed">
+              <p className="text-xl md:text-2xl text-slate-200 max-w-3xl leading-relaxed">
                 We craft innovative software solutions that propel businesses into the future. 
                 From custom applications to AI-powered systems, we turn your vision into reality.
               </p>
@@ -138,11 +202,12 @@ const Home = () => {
                 <span>Start Your Project</span>
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
-              <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-blue-300 text-blue-600 hover:bg-blue-50 group transition-all duration-300">
+              <Button size="lg" variant="outline" className="px-8 py-4 text-lg bg-blue-700/20 border-blue-300 text-white hover:bg-blue-500/20 group transition-all duration-300">
                 <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                 <span>Watch Demo</span>
               </Button>
             </AnimatedSection>
+
           </div>
         </div>
         
@@ -237,13 +302,9 @@ const Home = () => {
                   <h3 className="text-xl font-semibold mb-3 group-hover:text-blue-600 transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="text-slate-600 leading-relaxed mb-4">
+                  <p className="text-slate-600 leading-relaxed ">
                     {service.description}
                   </p>
-                  <Button variant="ghost" className="group/btn text-blue-600 hover:bg-blue-50 p-0">
-                    Learn More
-                    <ChevronRight className="ml-1 w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                  </Button>
                 </div>
               </AnimatedSection>
             ))}

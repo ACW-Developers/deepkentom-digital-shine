@@ -1,81 +1,175 @@
-import { Users, Target, Award, ArrowRight, Sparkles, CheckCircle, Globe, Heart, Eye, Code, Rocket } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Users, Target, ArrowRight, Globe, Heart, Eye, Code, Rocket, Mail, Linkedin, Github, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroAbout from "@/assets/hero-about.jpg";
 import teamImage from "@/assets/team-premium.jpg";
-import officeImage from "@/assets/office-workspace.jpg";
 
 const About = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [typingIndex, setTypingIndex] = useState(0);
+  const sectionRefs = useRef([]);
+  const typingTexts = [
+    "Digital Experiences",
+    "Innovative Solutions",
+    "Future Technology"
+  ];
+
+  useEffect(() => {
+    setIsVisible(true);
+    
+    // Typing animation
+    const typingInterval = setInterval(() => {
+      setTypingIndex((prev) => (prev + 1) % typingTexts.length);
+    }, 3000);
+    
+    // Intersection Observer for scroll animations
+    const observers = [];
+    
+    sectionRefs.current.forEach((ref, index) => {
+      if (!ref) return;
+      
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-visible');
+          }
+        },
+        { threshold: 0.1 }
+      );
+      
+      observer.observe(ref);
+      observers.push(observer);
+    });
+    
+    return () => {
+      clearInterval(typingInterval);
+      observers.forEach(observer => observer.disconnect());
+    };
+  }, []);
+
+  const addToRefs = (el) => {
+    if (el && !sectionRefs.current.includes(el)) {
+      sectionRefs.current.push(el);
+    }
+  };
+
+  // Team data
+  const teamMembers = [
+    {
+      name: "Dr. Ronald Tombe",
+      role: "Director & Lead Developer",
+      bio: "Visionary leader with 10+ years of experience in software architecture and team management.",
+      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+      social: {
+        linkedin: "#",
+        twitter: "#",
+        email: "#"
+      }
+    },
+    {
+      name: "Amos Clinton",
+      role: "Senior Software Developer",
+      bio: "Full-stack wizard specializing in React, Node.js, and cloud infrastructure.",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+      social: {
+        linkedin: "#",
+        github: "#",
+        email: "#"
+      }
+    },
+    {
+      name: "Kelly Nyachiro",
+      role: "Backend Engineer",
+      bio: "Creates intuitive experiences with a focus on accessibility and performance.",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+      social: {
+        linkedin: "#",
+        dribbble: "#",
+        email: "#"
+      }
+    }
+  ];
+
   return (
-    <div className="min-h-screen overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[85vh] flex items-center justify-start overflow-hidden pt-6">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroAbout})` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-primary/10 to-accent/20"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/70 to-cyan-500/20"></div>
         </div>
         
-        <div className="relative z-10 container mx-auto px-6 text-center">
-          <div className="max-w-4xl mx-auto space-y-8">
-            <div className="animate-fade-in">
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+        <div className="relative z-10 container mx-auto px-6 text-left">
+          <div className="max-w-4xl space-y-10">
+            <div className={`transition-all duration-700 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium">
                 <Heart className="w-4 h-4 mr-2 animate-pulse" />
                 Our Story & Vision
               </span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight animate-fade-in animate-stagger-1">
-              <span className="bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent">
+            <h1 className={`text-5xl md:text-6xl font-bold leading-tight transition-all duration-700 delay-100 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <span className="bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
                 Crafting Tomorrow's
               </span>
               <br />
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-shimmer">
-                Digital Experiences
-              </span>
+              <div className="h-20 md:h-24 overflow-hidden">
+                <span className="bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent typing-animation">
+                  {typingTexts[typingIndex]}
+                </span>
+              </div>
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in animate-stagger-2">
-              Founded on the belief that technology should empower humanity, we've been pushing the boundaries 
-              of innovation to create solutions that make a real difference.
+            <p className={`text-xl text-white/90 max-w-3xl leading-relaxed transition-all duration-700 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              Founded on the belief that technology should empower humanity, we create innovative solutions that make a real difference.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in animate-stagger-3">
-              <Button size="lg" className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white px-8 py-4 text-lg hover-glow group">
+            <div className={`flex flex-col sm:flex-row gap-4 justify-start items-center transition-all duration-700 delay-300 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+              <Button size="lg" className="bg-gradient-to-r from-blue-500 to-cyan-400 hover:from-blue-600 hover:to-cyan-500 text-white px-6 py-3 text-base hover:shadow-2xl hover:shadow-cyan-400/30 transition-all duration-300 group">
                 <span>Join Our Team</span>
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
-              <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-primary/30 hover:bg-primary/10 group">
-                <Globe className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Our Global Impact</span>
+              <Button size="lg" variant="outline" className="px-6 py-3 text-base bg-blue-500 to-cyan-400 border-white/30 hover:bg-white/10 text-white group">
+                <Globe className="mr-2 w-4 h-4 group-hover:scale-110 transition-transform duration-300" />
+                <span>Global Impact</span>
               </Button>
             </div>
+          </div>
+        </div>
+        
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="flex flex-col items-center text-white/80">
+            <span className="text-sm mb-2">Scroll down</span>
+            <ChevronDown className="w-5 h-5" />
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-24 bg-gradient-to-r from-primary/10 via-accent/5 to-secondary/10">
+      <section className="py-8 bg-gradient-to-r from-blue-600 to-cyan-500 text-white" ref={addToRefs}>
         <div className="container mx-auto px-6">
-          <div className="grid md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {[
-              { icon: Code, number: "500K+", label: "Lines of Code", color: "text-primary" },
-              { icon: Users, number: "98%", label: "Client Satisfaction", color: "text-accent" },
-              { icon: Rocket, number: "150+", label: "Projects Completed", color: "text-secondary" },
-              { icon: Globe, number: "25+", label: "Countries Served", color: "text-primary" }
+              { icon: Code, number: "500K+", label: "Lines of Code", color: "text-cyan-200" },
+              { icon: Users, number: "98%", label: "Client Satisfaction", color: "text-cyan-200" },
+              { icon: Rocket, number: "7+", label: "Projects Completed", color: "text-cyan-200" },
+              { icon: Globe, number: "2+", label: "Countries Served", color: "text-cyan-200" }
             ].map((stat, index) => (
               <div 
                 key={index} 
-                className="text-center group animate-fade-in"
+                className="text-left group transition-all duration-500 ease-out opacity-0 translate-y-8 animate-slide-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-primary/10 to-accent/10 mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <stat.icon className={`w-8 h-8 ${stat.color}`} />
+                <div className="inline-flex p-3 rounded-xl bg-white/10 backdrop-blur-sm mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <stat.icon className={`w-6 h-6 ${stat.color}`} />
                 </div>
-                <div className={`text-4xl md:text-5xl font-bold mb-3 ${stat.color}`}>
+                <div className={`text-3xl md:text-4xl font-bold mb-2 ${stat.color}`}>
                   {stat.number}
                 </div>
-                <div className="text-lg text-muted-foreground font-medium">
+                <div className="text-md text-white/80 font-medium">
                   {stat.label}
                 </div>
               </div>
@@ -85,42 +179,40 @@ const About = () => {
       </section>
 
       {/* Mission & Vision Section */}
-      <section className="py-32 bg-background relative">
+      <section className="py-20 bg-white relative" ref={addToRefs}>
         <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto">
-            <div className="animate-slide-in-left">
+          <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+            <div className="transition-all duration-500 ease-out opacity-0 -translate-x-8 animate-slide-in-left">
               <img 
                 src={teamImage} 
                 alt="Our innovative workspace and team" 
-                className="rounded-3xl shadow-2xl hover-glow card-elevated"
+                className="rounded-2xl shadow-xl hover:shadow-cyan-500/20 transition-all duration-400"
               />
             </div>
-            <div className="space-y-16">
-              <div className="animate-fade-in">
-                <div className="flex items-center mb-6">
-                  <div className="p-3 bg-primary/10 rounded-xl mr-4">
-                    <Target className="w-10 h-10 text-primary" />
+            <div className="space-y-12">
+              <div className="transition-all duration-500 ease-out opacity-0 translate-x-8 animate-slide-in-right">
+                <div className="flex items-center mb-4">
+                  <div className="p-2 bg-blue-100 rounded-lg mr-3">
+                    <Target className="w-8 h-8 text-blue-600" />
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-bold text-foreground">Our Mission</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Our Mission</h2>
                 </div>
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                <p className="text-lg text-gray-600 leading-relaxed">
                   To revolutionize businesses through innovative software solutions that drive exponential growth, 
-                  operational efficiency, and sustainable competitive advantage. We believe technology should be a 
-                  catalyst for transformation, not a complexity that holds businesses back from achieving their potential.
+                  operational efficiency, and sustainable competitive advantage.
                 </p>
               </div>
               
-              <div className="animate-slide-in-right">
-                <div className="flex items-center mb-6">
-                  <div className="p-3 bg-accent/10 rounded-xl mr-4">
-                    <Eye className="w-10 h-10 text-accent" />
+              <div className="transition-all duration-500 ease-out opacity-0 translate-x-8 animate-slide-in-right">
+                <div className="flex items-center mb-4">
+                  <div className="p-2 bg-cyan-100 rounded-lg mr-3">
+                    <Eye className="w-8 h-8 text-cyan-600" />
                   </div>
-                  <h2 className="text-4xl md:text-5xl font-bold text-foreground">Our Vision</h2>
+                  <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Our Vision</h2>
                 </div>
-                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                <p className="text-lg text-gray-600 leading-relaxed">
                   To become the global leader in transformative software solutions, empowering every organization 
-                  to harness cutting-edge technology for extraordinary success. We envision a world where innovative 
-                  software bridges the gap between ambitious dreams and remarkable achievements.
+                  to harness cutting-edge technology for extraordinary success.
                 </p>
               </div>
             </div>
@@ -128,60 +220,57 @@ const About = () => {
         </div>
       </section>
 
-      {/* Values Section */}
-      <section className="py-32 bg-gradient-to-br from-muted/30 via-background to-muted/30 relative overflow-hidden">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 left-20 w-80 h-80 bg-gradient-to-br from-accent/10 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '3s' }}></div>
+      {/* Team Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-cyan-50 relative overflow-hidden" ref={addToRefs}>
+        <div className="absolute top-12 right-12 w-48 h-48 bg-gradient-to-br from-blue-200/30 to-transparent rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-12 left-12 w-60 h-60 bg-gradient-to-br from-cyan-200/30 to-transparent rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         
         <div className="container mx-auto px-6 relative">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground animate-fade-in">
-              Our <span className="text-shimmer">Core Values</span>
+          <div className="text-left mb-12 max-w-3xl">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 transition-all duration-500 ease-out opacity-0 translate-y-8 animate-slide-up">
+              Our <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Dream Team</span>
             </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-slide-in-right">
-              These fundamental principles guide every decision we make and define how we serve our clients with excellence.
+            <p className="text-xl text-gray-600 leading-relaxed transition-all duration-500 ease-out opacity-0 translate-y-8 animate-slide-up" style={{animationDelay: '0.1s'}}>
+              Our diverse team combines decades of experience across multiple industries and technologies.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            {[
-              {
-                icon: <Target className="w-8 h-8 text-primary" />,
-                title: "Innovation",
-                description: "We embrace cutting-edge technologies and creative solutions to solve complex challenges.",
-                gradient: "from-primary/20 to-accent/20"
-              },
-              {
-                icon: <Heart className="w-8 h-8 text-primary" />,
-                title: "Quality",
-                description: "Excellence is not negotiable. We deliver robust, scalable, and maintainable software.",
-                gradient: "from-accent/20 to-secondary/20"
-              },
-              {
-                icon: <Users className="w-8 h-8 text-primary" />,
-                title: "Collaboration",
-                description: "We work closely with our clients as true partners in their success journey.",
-                gradient: "from-secondary/20 to-primary/20"
-              }
-            ].map((value, index) => (
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {teamMembers.map((member, index) => (
               <div 
                 key={index} 
-                className="card-premium hover-glow border-0 overflow-hidden group relative animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-400 group overflow-hidden relative transition-all duration-500 ease-out opacity-0 translate-y-8 animate-slide-up"
+                style={{ animationDelay: `${index * 0.15}s` }}
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-100 transition-smooth`}></div>
-                <div className="p-10 text-center relative z-10">
-                  <div className="mb-8 flex justify-center">
-                    <div className="p-5 bg-primary/10 rounded-2xl group-hover:scale-110 group-hover:bg-primary/20 transition-smooth">
-                      {value.icon}
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-5 transition-opacity duration-400"></div>
+                <div className="flex flex-col items-center text-center mb-4">
+                  <div className="relative mb-4">
+                    <div className="w-28 h-28 rounded-full overflow-hidden shadow-md border-4 border-white group-hover:border-cyan-100 transition-all duration-400">
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white px-3 py-1 rounded-full text-xs font-medium">
+                      {index === 0 ? 'Lead' : 'Developer'}
                     </div>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-6 text-foreground group-hover:text-primary transition-smooth">
-                    {value.title}
-                  </h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    {value.description}
-                  </p>
+                  <h3 className="text-xl font-bold text-gray-900">{member.name}</h3>
+                  <p className="text-cyan-600 font-medium text-sm">{member.role}</p>
+                </div>
+                
+                <p className="text-gray-600 mb-6 text-sm leading-relaxed text-center">
+                  {member.bio}
+                </p>
+                
+                <div className="flex justify-center space-x-3">
+                  <a href={member.social.linkedin} className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-blue-600 hover:text-white transition-all duration-300">
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                  <a href={member.social.email} className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-cyan-500 hover:text-white transition-all duration-300">
+                    <Mail className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             ))}
@@ -189,58 +278,141 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team Excellence */}
-      <section className="py-32 bg-background">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-20 items-center max-w-7xl mx-auto">
-            <div className="space-y-8">
-              <div className="animate-fade-in">
-                <span className="inline-block px-4 py-2 rounded-full bg-accent/10 text-accent text-sm font-medium mb-6">
-                  Built by Experts
-                </span>
-                <h2 className="text-5xl md:text-6xl font-bold mb-8 text-foreground">
-                  Meet Our <span className="text-shimmer">Dream Team</span>
-                </h2>
-                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-                  Our diverse team combines decades of experience across multiple industries and technologies. 
-                  From senior architects to creative designers, we bring together the best minds to solve your toughest challenges.
+      {/* Values Section */}
+      <section className="py-20 bg-white relative overflow-hidden" ref={addToRefs}>
+        <div className="container mx-auto px-6 relative">
+          <div className="text-left mb-12 max-w-3xl">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900 transition-all duration-500 ease-out opacity-0 -translate-x-8 animate-slide-in-left">
+              Our <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Core Values</span>
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed transition-all duration-500 ease-out opacity-0 -translate-x-8 animate-slide-in-left" style={{animationDelay: '0.1s'}}>
+              These fundamental principles guide every decision we make and define how we serve our clients.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[
+              {
+                icon: <Target className="w-6 h-6 text-blue-600" />,
+                title: "Innovation",
+                description: "We embrace cutting-edge technologies and creative solutions to solve complex challenges.",
+                color: "blue"
+              },
+              {
+                icon: <Heart className="w-6 h-6 text-blue-600" />,
+                title: "Quality",
+                description: "Excellence is not negotiable. We deliver robust, scalable, and maintainable software.",
+                color: "cyan"
+              },
+              {
+                icon: <Users className="w-6 h-6 text-blue-600" />,
+                title: "Collaboration",
+                description: "We work closely with our clients as true partners in their success journey.",
+                color: "blue"
+              }
+            ].map((value, index) => (
+              <div 
+                key={index} 
+                className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-400 group overflow-hidden relative border border-gray-100 transition-all duration-500 ease-out opacity-0 translate-y-8 animate-slide-up"
+                style={{ animationDelay: `${index * 0.15}s` }}
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br from-${value.color}-600 to-${value.color === 'blue' ? 'cyan-500' : 'blue-500'} opacity-0 group-hover:opacity-5 transition-opacity duration-400`}></div>
+                <div className="mb-6">
+                  <div className="p-4 bg-blue-100 rounded-xl group-hover:scale-110 group-hover:bg-blue-200 transition-all duration-400 inline-flex">
+                    {value.icon}
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors duration-400">
+                  {value.title}
+                </h3>
+                <p className="text-gray-600 text-md leading-relaxed">
+                  {value.description}
                 </p>
               </div>
-              
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 animate-slide-in-right">
-                {[
-                  "React & Next.js", "TypeScript", "Node.js & Express", "Python & Django", 
-                  "AWS & Azure", "Docker & Kubernetes", "PostgreSQL & MongoDB", "GraphQL & REST APIs",
-                  "Microservices", "CI/CD Pipelines", "Machine Learning", "Blockchain"
-                ].map((tech, index) => (
-                  <div 
-                    key={index}
-                    className="px-4 py-3 bg-gradient-to-br from-primary/5 to-accent/5 text-primary rounded-xl text-center font-medium hover-lift border border-primary/10 animate-scale-in"
-                    style={{ animationDelay: `${index * 0.05}s` }}
-                  >
-                    {tech}
-                  </div>
-                ))}
-              </div>
-
-              <div className="animate-fade-in">
-                <Button size="lg" className="bg-gradient-to-r from-accent to-primary hover:opacity-90 text-white px-8 py-4 text-lg hover-glow group">
-                  <span>Join Our Team</span>
-                  <Users className="ml-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                </Button>
-              </div>
-            </div>
-            
-            <div className="animate-slide-in-left">
-              <img 
-                src={officeImage} 
-                alt="Our collaborative workspace" 
-                className="rounded-3xl shadow-2xl hover-glow card-elevated"
-              />
-            </div>
+            ))}
           </div>
         </div>
       </section>
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-cyan-500 text-white" ref={addToRefs}>
+        <div className="container mx-auto px-6 text-center">
+          <div className="max-w-3xl mx-auto transition-all duration-500 ease-out opacity-0 translate-y-8 animate-slide-up">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Transform Your Vision?</h2>
+            <p className="text-xl text-white/90 mb-8 leading-relaxed">
+              Let's collaborate to build something extraordinary that drives your business forward.
+            </p>
+            <Button size="lg" className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 text-base font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group">
+              <span>Start a Project</span>
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      <style>{`
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        
+        @keyframes slideInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes typing {
+          0% { opacity: 0; transform: translateY(10px); }
+          10% { opacity: 1; transform: translateY(0); }
+          90% { opacity: 1; transform: translateY(0); }
+          100% { opacity: 0; transform: translateY(-10px); }
+        }
+        
+        .animate-slide-up {
+          animation: slideUp 0.5s ease-out forwards;
+        }
+        
+        .animate-slide-in-left {
+          animation: slideInLeft 0.5s ease-out forwards;
+        }
+        
+        .animate-slide-in-right {
+          animation: slideInRight 0.5s ease-out forwards;
+        }
+        
+        .typing-animation {
+          animation: typing 3s infinite;
+          display: inline-block;
+        }
+        
+        .animate-visible {
+          opacity: 1;
+          transform: translateY(0) translateX(0);
+        }
+      `}</style>
     </div>
   );
 };
