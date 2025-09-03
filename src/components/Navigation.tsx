@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Home, User, Settings, Mail, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo1 from "@/assets/logos/logo1.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,9 +22,9 @@ const Navigation = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Enhanced Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="relative w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl flex items-center justify-center group-hover:scale-110 transition-all duration-300">
-              <Sparkles className="w-5 h-5 text-white animate-pulse" />
+          <Link to="/" className="flex items-center space-x-2 group">
+            <div className="relative w-12 h-12 rounded-xl overflow-hidden group-hover:scale-110 transition-all duration-300">
+              <img src={logo1} alt="Deepkentom Logo" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
               Deepkentom

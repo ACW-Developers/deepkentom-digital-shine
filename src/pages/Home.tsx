@@ -199,7 +199,7 @@ const Home = () => {
             
             <AnimatedSection delay={400} className="flex flex-col sm:flex-row gap-6 items-start">
               <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-4 text-lg group transition-all duration-300 shadow-lg hover:shadow-blue-500/25">
-                <span>Start Your Project</span>
+                <span>Contact Us</span>
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
               <Button size="lg" variant="outline" className="px-8 py-4 text-lg bg-blue-700/20 border-blue-300 text-white hover:bg-blue-500/20 group transition-all duration-300">

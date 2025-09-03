@@ -94,10 +94,7 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-primary mt-1 group-hover:scale-110 transition-transform duration-300" />
                 <div>
                   <p className="text-muted-foreground group-hover:text-primary transition-colors duration-300">
-                    info@deepkentom.com
-                  </p>
-                  <p className="text-muted-foreground group-hover:text-primary transition-colors duration-300">
-                    support@deepkentom.com
+                    kentomdeep@gmail.com
                   </p>
                 </div>
               </div>
@@ -105,19 +102,19 @@ const Footer = () => {
                 <Phone className="w-5 h-5 text-primary mt-1 group-hover:scale-110 transition-transform duration-300" />
                 <div>
                   <p className="text-muted-foreground group-hover:text-primary transition-colors duration-300">
-                    +1 (555) 123-4567
+                    +254 (710) 791-596
                   </p>
                   <p className="text-muted-foreground group-hover:text-primary transition-colors duration-300">
-                    +1 (555) 987-6543
+                    +254 (114) 290-760
                   </p>
                 </div>
               </div>
               <div className="flex items-start space-x-3 group">
                 <MapPin className="w-5 h-5 text-primary mt-1 group-hover:scale-110 transition-transform duration-300" />
                 <p className="text-muted-foreground group-hover:text-primary transition-colors duration-300">
-                  123 Tech Avenue<br />
-                  Innovation District<br />
-                  San Francisco, CA 94105
+                  Kisii University,<br />
+                  Kisii County,<br />
+                  Kenya
                 </p>
               </div>
             </div>
