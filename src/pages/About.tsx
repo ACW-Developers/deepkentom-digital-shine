@@ -3,6 +3,10 @@ import { Users, Target, ArrowRight, Globe, Heart, Eye, Code, Rocket, Mail, Linke
 import { Button } from "@/components/ui/button";
 import heroAbout from "@/assets/hero-about.jpg";
 import teamImage from "@/assets/team-premium.jpg";
+import tombeImg from "@/assets/team/ronald.png";
+import amosImg from "@/assets/team/clinton.png";
+import kellyImg from "@/assets/team/kelly.png";
+
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -53,42 +57,41 @@ const About = () => {
     }
   };
 
-  // Team data
   const teamMembers = [
-    {
-      name: "Dr. Ronald Tombe",
-      role: "Director & Lead Developer",
-      bio: "Visionary leader with 10+ years of experience in software architecture and team management.",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      social: {
-        linkedin: "#",
-        twitter: "#",
-        email: "#"
-      }
-    },
-    {
-      name: "Amos Clinton",
-      role: "Senior Software Developer",
-      bio: "Full-stack wizard specializing in React, Node.js, and cloud infrastructure.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      social: {
-        linkedin: "#",
-        github: "#",
-        email: "#"
-      }
-    },
-    {
-      name: "Kelly Nyachiro",
-      role: "Backend Engineer",
-      bio: "Creates intuitive experiences with a focus on accessibility and performance.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-      social: {
-        linkedin: "#",
-        dribbble: "#",
-        email: "#"
-      }
+  {
+    name: "Dr. Ronald Tombe",
+    role: "Director & Lead Developer",
+    bio: "Visionary leader with 10+ years of experience in software architecture and team management.",
+    image: tombeImg,
+    social: {
+      linkedin: "#",
+      twitter: "#",
+      email: "ronaldtombe@gmail.com"
     }
-  ];
+  },
+  {
+    name: "Amos Clinton",
+    role: "Software Developer",
+    bio: "Full-stack wizard specializing in React, Node.js, and cloud infrastructure.",
+    image: amosImg,
+    social: {
+      linkedin: "https://www.linkedin.com/in/amos-clinton-b65158222/",
+      github: "https://github.com/Wanyangu1",
+      email: "amosclinton196@gmail.com"
+    }
+  },
+  {
+    name: "Kelly Nyachiro",
+    role: "Backend Engineer",
+    bio: "Creates intuitive experiences with a focus on accessibility and performance.",
+    image: kellyImg,
+    social: {
+      linkedin: "#",
+      dribbble: "#",
+      email: "Kellynyachiro@gmail.com"
+    }
+  }
+];
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-gradient-to-br from-slate-50 to-slate-100">

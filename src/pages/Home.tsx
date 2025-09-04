@@ -100,12 +100,12 @@ const AnimatedSection = ({ children, className = "", delay = 0 }) => {
 };
 
 const technologies = [
-  { name: "Frontend", icon: <Globe className="w-6 h-6" />, items: ["React", "Vue.js", "Angular", "TypeScript"] },
-  { name: "Backend", icon: <Server className="w-6 h-6" />, items: ["Node.js", "Python", "Java", ".NET"] },
+  { name: "Frontend", icon: <Globe className="w-6 h-6" />, items: ["React", "Vue.js", "TypeScript", "Tailwind"] },
+  { name: "Backend", icon: <Server className="w-6 h-6" />, items: ["Django", "Python", "Java", "Springboot"] },
   { name: "Mobile", icon: <Cpu className="w-6 h-6" />, items: ["React Native", "Flutter", "iOS", "Android"] },
-  { name: "Database", icon: <Database className="w-6 h-6" />, items: ["PostgreSQL", "MongoDB", "Redis", "Elasticsearch"] },
+  { name: "Database", icon: <Database className="w-6 h-6" />, items: ["PostgreSQL", "MongoDB", "MySql"] },
   { name: "Cloud", icon: <Cloud className="w-6 h-6" />, items: ["AWS", "Azure", "Google Cloud", "Kubernetes"] },
-  { name: "DevOps", icon: <GitBranch className="w-6 h-6" />, items: ["Docker", "Jenkins", "Terraform", "GitLab CI/CD"] }
+  { name: "DevOps", icon: <GitBranch className="w-6 h-6" />, items: ["GitHub", "Host pinnacle", "GitLab CI/CD", "Docker", "Jenkins"] }
 ];
 
 const processSteps = [
