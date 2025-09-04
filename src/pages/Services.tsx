@@ -18,7 +18,7 @@ const Services = () => {
 <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
   {/* Background Image */}
   <div 
-    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    className="absolute inset-0 bg-cover bg-fixed bg-center bg-no-repeat"
     style={{ backgroundImage: `url(${heroServices})` }}
   >
     {/* Darker Overlay Gradient */}

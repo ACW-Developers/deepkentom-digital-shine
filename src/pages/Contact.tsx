@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
-import heroContact from "@/assets/hero-contact.jpg";
+import heroContact from "@/assets/hero-african-tech.jpg";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -119,23 +119,23 @@ const Contact = () => {
                   {
                     icon: Mail,
                     title: "Email Us",
-                    primary: "info@deepkentom.com",
-                    secondary: "support@deepkentom.com",
+                    primary: "kentomdeep@gmail.com",
+                    secondary: "ronaldtombe@gmail.com",
                     description: "Send us an email anytime - we respond within 24 hours"
                   },
                   {
                     icon: Phone,
                     title: "Call Us",
-                    primary: "+1 (555) 123-4567",
-                    secondary: "+1 (555) 987-6543",
+                    primary: "+254 (710) 791-596",
+                    secondary: "+254 (114) 290-760",
                     description: "Available Mon-Fri from 8:00 AM to 6:00 PM EST"
                   },
                   {
                     icon: MapPin,
                     title: "Visit Us",
-                    primary: "123 Tech Avenue",
-                    secondary: "Innovation District, San Francisco, CA 94105",
-                    description: "Our headquarters in the heart of Silicon Valley"
+                    primary: "Kisii University",
+                    secondary: "Kisii County, Kenya",
+                    description: "Pay us a visit during business hours - lets patner"
                   }
                 ].map((info, index) => (
                   <div 

@@ -3,13 +3,13 @@ import { ArrowRight, Code2, Users, Zap, Shield, Globe, Sparkles, Play, ChevronRi
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ParticleField from "@/components/ParticleField";
+import heroImage from "@/assets/office-workspace.jpg";
 import heroAfricanTech from "@/assets/hero-african-tech.jpg";
 import customSoftware from "@/assets/solution-custom-software.jpg";
 import mobileApps from "@/assets/solution-mobile-apps.jpg";
 import ecommerce from "@/assets/solution-ecommerce.jpg";
 import cloudSolutions from "@/assets/solution-cloud.jpg";
 import developmentProcess from "@/assets/team-premium.jpg";
-
 // Typing animation component
 const TypingAnimation = () => {
   const [currentText, setCurrentText] = useState('');
@@ -141,11 +141,6 @@ const testimonials = [
 ];
 
 const Home = () => {
-  useEffect(() => {
-    // Scroll to top when component mounts
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <div className="min-h-screen overflow-x-hidden bg-gradient-to-b from-slate-50 to-blue-50/30">
       <style>{`
@@ -167,10 +162,10 @@ const Home = () => {
       <section className="relative min-h-screen flex items-center justify-start overflow-hidden">
         <div 
           className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroAfricanTech})` }}
+          style={{ backgroundImage: `url(${heroImage})` }}
         >
-          {/* Warm gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-accent/20"></div>
+          {/* Blue overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 via-blue-700/40 to-blue-500/10"></div>
         </div>
 
         {/* Particle field with bluish particles */}
@@ -179,33 +174,35 @@ const Home = () => {
         <div className="relative z-10 container mx-auto px-6 text-left">
           <div className="max-w-3xl space-y-6">
             <AnimatedSection delay={100}>
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-6">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-sm font-medium mb-6">
                 <Sparkles className="w-4 h-4 mr-2 animate-pulse" />
                 Next-Generation Technology Solutions
               </span>
             </AnimatedSection>
             
             <AnimatedSection delay={200}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white">
-                Transform Your
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                <span className="bg-white/80 bg-clip-text text-transparent">
+                  Transform Your
+                </span>
                 <br />
                 <TypingAnimation />
               </h1>
             </AnimatedSection>
             
             <AnimatedSection delay={300}>
-              <p className="text-xl md:text-2xl text-white/90 max-w-3xl leading-relaxed">
+              <p className="text-xl md:text-2xl text-slate-200 max-w-3xl leading-relaxed">
                 We craft innovative software solutions that propel businesses into the future. 
                 From custom applications to AI-powered systems, we turn your vision into reality.
               </p>
             </AnimatedSection>
             
             <AnimatedSection delay={400} className="flex flex-col sm:flex-row gap-6 items-start">
-              <Button size="lg" className="bg-white/20 backdrop-blur-md border border-white/20 text-white hover:bg-white/30 px-8 py-4 text-lg group transition-all duration-300 shadow-lg">
+              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-4 text-lg group transition-all duration-300 shadow-lg hover:shadow-blue-500/25">
                 <span>Contact Us</span>
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
-              <Button size="lg" variant="outline" className="px-8 py-4 text-lg bg-white text-primary border-white hover:bg-white/90 group transition-all duration-300">
+              <Button size="lg" variant="outline" className="px-8 py-4 text-lg bg-blue-700/20 border-blue-300 text-white hover:bg-blue-500/20 group transition-all duration-300">
                 <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                 <span>Watch Demo</span>
               </Button>
@@ -216,21 +213,13 @@ const Home = () => {
         
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-pulse"></div>
+          <div className="w-6 h-10 border-2 border-blue-300 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-blue-500 rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
-        
-        {/* Scroll to Top Button */}
-        <button 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-primary-gradient text-white rounded-full shadow-lg hover:scale-110 transition-all duration-300"
-        >
-          <ArrowRight className="w-5 h-5 rotate-[-90deg]" />
-        </button>
       </section>
 
-      {/* Services Overview */}
+       {/* Services Overview */}
       <section className="py-24 bg-gradient-to-b from-white to-slate-100/50">
         <div className="container mx-auto px-6">
           <AnimatedSection className="max-w-3xl mb-16">
@@ -322,7 +311,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Technology Stack Section */}
       <section className="py-24 bg-gradient-to-br from-blue-50/70 via-cyan-50/50 to-slate-100 relative overflow-hidden">
         <div className="absolute top-10 left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl animate-pulse"></div>

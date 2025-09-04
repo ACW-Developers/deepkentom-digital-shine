@@ -101,7 +101,7 @@ const About = () => {
       {/* Hero Section */}
       <section className="relative min-h-[85vh] flex items-center justify-start overflow-hidden pt-6">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-fixed bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroAbout})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/70 to-cyan-500/20"></div>
@@ -251,7 +251,7 @@ const About = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-5 transition-opacity duration-400"></div>
                 <div className="flex flex-col items-center text-center mb-4">
                   <div className="relative mb-4">
-                    <div className="w-28 h-28 rounded-full overflow-hidden shadow-md border-4 border-white group-hover:border-cyan-100 transition-all duration-400">
+                    <div className="w-32 h-32 rounded-full overflow-hidden shadow-md border-4 border-white group-hover:border-cyan-100 transition-all duration-400">
                       <img 
                         src={member.image} 
                         alt={member.name} 
