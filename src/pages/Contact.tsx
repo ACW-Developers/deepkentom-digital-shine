@@ -2,7 +2,7 @@ import { Mail, Phone, MapPin, Send, MessageSquare, Calendar, ArrowRight, Sparkle
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useToast } from "@/hooks/use-toast";
 import heroContact from "@/assets/hero-contact.jpg";
 
@@ -15,6 +15,11 @@ const Contact = () => {
     message: ""
   });
   const { toast } = useToast();
+
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;

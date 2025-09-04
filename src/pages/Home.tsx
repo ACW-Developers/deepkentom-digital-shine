@@ -3,11 +3,11 @@ import { ArrowRight, Code2, Users, Zap, Shield, Globe, Sparkles, Play, ChevronRi
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ParticleField from "@/components/ParticleField";
-import heroImage from "@/assets/office-workspace.jpg";
-import servicesTech from "@/assets/services-tech.jpg";
-import servicesPremiun from "@/assets/services-premium.jpg";
-import featureInnovation from "@/assets/feature-innovation.jpg";
-import featureSecurity from "@/assets/feature-security.jpg";
+import heroAfricanTech from "@/assets/hero-african-tech.jpg";
+import customSoftware from "@/assets/solution-custom-software.jpg";
+import mobileApps from "@/assets/solution-mobile-apps.jpg";
+import ecommerce from "@/assets/solution-ecommerce.jpg";
+import cloudSolutions from "@/assets/solution-cloud.jpg";
 import developmentProcess from "@/assets/team-premium.jpg";
 
 // Typing animation component
@@ -141,6 +141,11 @@ const testimonials = [
 ];
 
 const Home = () => {
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-gradient-to-b from-slate-50 to-blue-50/30">
       <style>{`
@@ -162,10 +167,10 @@ const Home = () => {
       <section className="relative min-h-screen flex items-center justify-start overflow-hidden">
         <div 
           className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          style={{ backgroundImage: `url(${heroAfricanTech})` }}
         >
-          {/* Blue overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 via-blue-700/30 to-blue-500/10"></div>
+          {/* Warm gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-accent/20"></div>
         </div>
 
         {/* Particle field with bluish particles */}
@@ -174,35 +179,33 @@ const Home = () => {
         <div className="relative z-10 container mx-auto px-6 text-left">
           <div className="max-w-3xl space-y-6">
             <AnimatedSection delay={100}>
-              <span className="inline-flex items-center px-4 py-2 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-sm font-medium mb-6">
+              <span className="inline-flex items-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-md border border-white/20 text-white text-sm font-medium mb-6">
                 <Sparkles className="w-4 h-4 mr-2 animate-pulse" />
                 Next-Generation Technology Solutions
               </span>
             </AnimatedSection>
             
             <AnimatedSection delay={200}>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="bg-white/80 bg-clip-text text-transparent">
-                  Transform Your
-                </span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-white">
+                Transform Your
                 <br />
                 <TypingAnimation />
               </h1>
             </AnimatedSection>
             
             <AnimatedSection delay={300}>
-              <p className="text-xl md:text-2xl text-slate-200 max-w-3xl leading-relaxed">
+              <p className="text-xl md:text-2xl text-white/90 max-w-3xl leading-relaxed">
                 We craft innovative software solutions that propel businesses into the future. 
                 From custom applications to AI-powered systems, we turn your vision into reality.
               </p>
             </AnimatedSection>
             
             <AnimatedSection delay={400} className="flex flex-col sm:flex-row gap-6 items-start">
-              <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-4 text-lg group transition-all duration-300 shadow-lg hover:shadow-blue-500/25">
+              <Button size="lg" className="bg-white/20 backdrop-blur-md border border-white/20 text-white hover:bg-white/30 px-8 py-4 text-lg group transition-all duration-300 shadow-lg">
                 <span>Contact Us</span>
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
-              <Button size="lg" variant="outline" className="px-8 py-4 text-lg bg-blue-700/20 border-blue-300 text-white hover:bg-blue-500/20 group transition-all duration-300">
+              <Button size="lg" variant="outline" className="px-8 py-4 text-lg bg-white text-primary border-white hover:bg-white/90 group transition-all duration-300">
                 <Play className="mr-2 w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
                 <span>Watch Demo</span>
               </Button>
@@ -213,10 +216,18 @@ const Home = () => {
         
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-blue-300 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-blue-500 rounded-full mt-2 animate-pulse"></div>
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
+        
+        {/* Scroll to Top Button */}
+        <button 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-8 right-8 z-50 p-3 bg-primary-gradient text-white rounded-full shadow-lg hover:scale-110 transition-all duration-300"
+        >
+          <ArrowRight className="w-5 h-5 rotate-[-90deg]" />
+        </button>
       </section>
 
       {/* Services Overview */}
@@ -240,43 +251,43 @@ const Home = () => {
                 icon: Code2,
                 title: "Custom Software Development",
                 description: "Tailored applications built with cutting-edge technologies to solve your unique business challenges.",
-                image: servicesTech,
-                gradient: "from-blue-500/20 to-cyan-500/20"
+                image: customSoftware,
+                gradient: "from-orange-500/20 to-red-500/20"
               },
               {
                 icon: Globe,
                 title: "Cloud Solutions & DevOps",
                 description: "Scalable infrastructure and automated deployment pipelines for modern applications.",
-                image: servicesPremiun,
+                image: cloudSolutions,
                 gradient: "from-cyan-500/20 to-indigo-500/20"
               },
               {
                 icon: Zap,
                 title: "AI & Machine Learning",
                 description: "Intelligent systems that learn, adapt, and provide predictive insights for your business.",
-                image: featureInnovation,
+                image: mobileApps,
                 gradient: "from-indigo-500/20 to-blue-500/20"
               },
               {
                 icon: Shield,
                 title: "Cybersecurity",
                 description: "Comprehensive security solutions to protect your digital assets and user data.",
-                image: featureSecurity,
-                gradient: "from-blue-500/20 to-cyan-500/20"
+                image: ecommerce,
+                gradient: "from-green-500/20 to-teal-500/20"
               },
               {
                 icon: Users,
                 title: "Digital Transformation",
                 description: "Strategic consulting to modernize your business processes and technology stack.",
-                image: servicesTech,
-                gradient: "from-cyan-500/20 to-indigo-500/20"
+                image: customSoftware,
+                gradient: "from-purple-500/20 to-indigo-500/20"
               },
               {
                 icon: Sparkles,
                 title: "Innovation Lab",
                 description: "Experimental technologies and proof-of-concept development for future solutions.",
-                image: servicesPremiun,
-                gradient: "from-indigo-500/20 to-blue-500/20"
+                image: mobileApps,
+                gradient: "from-pink-500/20 to-rose-500/20"
               },
             ].map((service, index) => (
               <AnimatedSection 

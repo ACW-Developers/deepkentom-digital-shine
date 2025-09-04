@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Code, Smartphone, Cloud, Shield, Zap, Users, ArrowRight, Sparkles, CheckCircle, Play, Database, Globe2, Cpu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroServices from "@/assets/hero-services.jpg";
@@ -6,6 +7,11 @@ import servicesPremiun from "@/assets/services-premium.jpg";
 import featureInnovation from "@/assets/feature-innovation.jpg";
 
 const Services = () => {
+  useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen overflow-x-hidden bg-gradient-to-r from-blue-900/50 via-blue-700/30 to-blue-500/10">
       {/* Hero Section */}
