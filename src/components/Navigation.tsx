@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Home, User, Settings, Mail, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,11 +7,6 @@ import logo1 from "@/assets/logos/logo1.png";
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
-  // Scroll to top when navigating to a new page
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
 
   const navItems = [
     { name: "Home", path: "/", icon: Home },
@@ -81,10 +76,7 @@ const Navigation = () => {
                       ? "text-blue-600 bg-blue-50/80" 
                       : "text-slate-700 hover:text-blue-600 hover:bg-blue-50/50"
                   }`}
-                  onClick={() => {
-                    setIsOpen(false);
-                    window.scrollTo(0, 0);
-                  }}
+                  onClick={() => setIsOpen(false)}
                 >
                   <item.icon className="w-5 h-5" />
                   <span>{item.name}</span>
