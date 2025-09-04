@@ -1,9 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Code2, Users, Zap, Shield, Globe, Sparkles, Play, ChevronRight, Star, CheckCircle, Target, Rocket, Server, Cpu, Database, Cloud, GitBranch, MessageCircle, BarChart3 } from "lucide-react";
+import { ArrowRight, Code2, Users, Zap, Shield, Globe, Sparkles, Play, ChevronRight, Star, CheckCircle, Target, Rocket, Server, Cpu, Database, Cloud, GitBranch, MessageCircle, BarChart3, ChevronUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ParticleField from "@/components/ParticleField";
-import heroImage from "@/assets/office-workspace.jpg";
+import heroAfricanTech from "@/assets/hero-african-tech.jpg";
+import solutionCustomSoftware from "@/assets/solution-custom-software.jpg";
+import solutionMobileApps from "@/assets/solution-mobile-apps.jpg";
+import solutionEcommerce from "@/assets/solution-ecommerce.jpg";
+import solutionCloud from "@/assets/solution-cloud.jpg";
 import servicesTech from "@/assets/services-tech.jpg";
 import servicesPremiun from "@/assets/services-premium.jpg";
 import featureInnovation from "@/assets/feature-innovation.jpg";
@@ -141,6 +145,9 @@ const testimonials = [
 ];
 
 const Home = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   return (
     <div className="min-h-screen overflow-x-hidden bg-gradient-to-b from-slate-50 to-blue-50/30">
       <style>{`
@@ -162,10 +169,10 @@ const Home = () => {
       <section className="relative min-h-screen flex items-center justify-start overflow-hidden">
         <div 
           className="absolute inset-0 bg-fixed bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${heroImage})` }}
+          style={{ backgroundImage: `url(${heroAfricanTech})` }}
         >
-          {/* Blue overlay gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/50 via-blue-700/30 to-blue-500/10"></div>
+          {/* Reduced blue overlay gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-900/40 via-blue-900/30 to-slate-800/20"></div>
         </div>
 
         {/* Particle field with bluish particles */}
@@ -208,6 +215,17 @@ const Home = () => {
               </Button>
             </AnimatedSection>
 
+            {/* Scroll to Top Button */}
+            <AnimatedSection delay={600} className="absolute bottom-8 right-8">
+              <Button
+                onClick={scrollToTop}
+                size="lg"
+                className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all duration-300 rounded-full p-4 group"
+              >
+                <ChevronUp className="w-6 h-6 group-hover:-translate-y-1 transition-transform duration-300" />
+              </Button>
+            </AnimatedSection>
+
           </div>
         </div>
         
@@ -240,14 +258,14 @@ const Home = () => {
                 icon: Code2,
                 title: "Custom Software Development",
                 description: "Tailored applications built with cutting-edge technologies to solve your unique business challenges.",
-                image: servicesTech,
+                image: solutionCustomSoftware,
                 gradient: "from-blue-500/20 to-cyan-500/20"
               },
               {
                 icon: Globe,
                 title: "Cloud Solutions & DevOps",
                 description: "Scalable infrastructure and automated deployment pipelines for modern applications.",
-                image: servicesPremiun,
+                image: solutionCloud,
                 gradient: "from-cyan-500/20 to-indigo-500/20"
               },
               {
@@ -266,16 +284,16 @@ const Home = () => {
               },
               {
                 icon: Users,
-                title: "Digital Transformation",
-                description: "Strategic consulting to modernize your business processes and technology stack.",
-                image: servicesTech,
+                title: "Mobile App Development",
+                description: "Native and cross-platform mobile applications for iOS and Android devices.",
+                image: solutionMobileApps,
                 gradient: "from-cyan-500/20 to-indigo-500/20"
               },
               {
                 icon: Sparkles,
-                title: "Innovation Lab",
-                description: "Experimental technologies and proof-of-concept development for future solutions.",
-                image: servicesPremiun,
+                title: "E-commerce Solutions",
+                description: "Complete online store solutions with payment integration and inventory management.",
+                image: solutionEcommerce,
                 gradient: "from-indigo-500/20 to-blue-500/20"
               },
             ].map((service, index) => (
