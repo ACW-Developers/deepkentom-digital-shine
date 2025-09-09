@@ -64,7 +64,7 @@ const About = () => {
   {
     name: "Dr. Ronald Tombe",
     role: "Director & Lead Developer",
-    bio: "Visionary leader with 10+ years of experience in software architecture and team management.",
+    bio: "Visionary leader with 3+ years of experience in software architecture and team management.",
     image: tombeImg,
     social: {
       linkedin: "#",
@@ -75,7 +75,7 @@ const About = () => {
   {
     name: "Amos Clinton",
     role: "Software Developer",
-    bio: "Full-stack wizard specializing in React, Node.js, and cloud infrastructure.",
+    bio: "Full-stack wizard specializing in React, Django, and cloud infrastructure.",
     image: amosImg,
     social: {
       linkedin: "https://www.linkedin.com/in/amos-clinton-b65158222/",
@@ -84,16 +84,16 @@ const About = () => {
     }
   },
   {
-    name: "Kelly Nyachiro",
-    role: "Backend Engineer",
-    bio: "Creates intuitive experiences with a focus on accessibility and performance.",
-    image: kellyImg,
-    social: {
-      linkedin: "#",
-      dribbble: "#",
-      email: "Kellynyachiro@gmail.com"
-    }
+  name: "Kelly Nyachiro",
+  role: "Backend Engineer",
+  bio: "Specializes in building robust server-side systems, optimizing databases, and ensuring scalable application.",
+  image: kellyImg,
+  social: {
+    linkedin: "#",
+    dribbble: "#",
+    email: "Kellynyachiro@gmail.com"
   }
+}
 ];
 
   return (
