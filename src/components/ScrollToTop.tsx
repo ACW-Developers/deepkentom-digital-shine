@@ -32,8 +32,8 @@ const ScrollToTop = () => {
       size="icon"
       className={cn(
         "fixed bottom-8 right-8 z-50 w-12 h-12 rounded-full transition-all duration-300 transform",
-        "bg-primary-gradient hover:scale-110 hover:shadow-lg shadow-md",
-        "animate-pulse-glow border border-primary/20 backdrop-blur-sm",
+        "bg-blue-cyan-gradient hover:scale-110 hover:shadow-lg shadow-md",
+        "animate-pulse-glow border border-blue-500/20 backdrop-blur-sm",
         isVisible
           ? "translate-y-0 opacity-100 pointer-events-auto"
           : "translate-y-16 opacity-0 pointer-events-none"
