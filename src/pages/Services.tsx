@@ -43,11 +43,14 @@ const Services = () => {
       </h1>
       
       {/* Subtext */}
-      <p className="text-xl md:text-2xl text-slate-100 max-w-3xl leading-relaxed animate-fade-in-right animate-stagger-2">
+      <p className="text-lg text-slate-100 max-w-3xl leading-relaxed animate-fade-in-right animate-stagger-2 md:hidden">
+        End-to-end tech services to accelerate your growth.
+      </p>
+
+      <p className="hidden md:block text-xl md:text-2xl text-slate-100 max-w-3xl leading-relaxed animate-fade-in-right animate-stagger-2">
         From initial concept to final deployment and beyond — we provide end-to-end technology services 
         that drive innovation and accelerate your business growth.
-      </p>
-      
+      </p>  
       {/* CTA Buttons */}
       <div className="flex flex-col sm:flex-row gap-6 items-start animate-fade-in-right animate-stagger-3">
         <Button size="lg" className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white px-8 py-4 text-lg shadow-lg hover:shadow-cyan-500/30 group transition-all duration-300">

@@ -78,7 +78,11 @@ const Contact = () => {
       </h1>
 
       {/* Subtext */}
-      <p className="text-xl md:text-2xl text-slate-100 max-w-3xl leading-relaxed animate-fade-in animate-stagger-2">
+      <p className="text-lg text-slate-100 max-w-3xl leading-relaxed animate-fade-in animate-stagger-2 md:hidden">
+        Let’s turn your vision into reality. Get in touch today.
+      </p>
+
+      <p className="hidden md:block text-xl md:text-2xl text-slate-100 max-w-3xl leading-relaxed animate-fade-in animate-stagger-2">
         We're here to turn your vision into reality. Get in touch with our team of experts 
         and let's discuss how we can transform your business through technology.
       </p>

@@ -191,10 +191,14 @@ const Home = () => {
             </AnimatedSection>
             
             <AnimatedSection delay={300}>
-              <p className="text-xl md:text-2xl text-slate-200 max-w-3xl leading-relaxed">
+              <p className="text-lg text-slate-200 max-w-3xl leading-relaxed md:hidden">
+                Innovative software solutions — from custom apps to AI systems.
+              </p>
+              <p className="hidden md:block text-xl md:text-2xl text-slate-200 max-w-3xl leading-relaxed">
                 We craft innovative software solutions that propel businesses into the future. 
                 From custom applications to AI-powered systems, we turn your vision into reality.
               </p>
+
             </AnimatedSection>
             
             <AnimatedSection delay={400} className="flex flex-col sm:flex-row gap-6 items-start">

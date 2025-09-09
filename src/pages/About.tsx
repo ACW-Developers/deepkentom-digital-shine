@@ -126,9 +126,20 @@ const About = () => {
                   {typingTexts[typingIndex]}
                 </span>
               </div>
-            </h1>
-            
-            <p className={`text-xl text-white/90 max-w-3xl leading-relaxed transition-all duration-700 delay-200 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            </h1>            
+            <p
+              className={`text-lg text-white/90 max-w-3xl leading-relaxed transition-all duration-700 delay-200 ease-out md:hidden ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              Technology built to empower humanity.
+            </p>
+
+            <p
+              className={`hidden md:block text-xl text-white/90 max-w-3xl leading-relaxed transition-all duration-700 delay-200 ease-out ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
               Founded on the belief that technology should empower humanity, we create innovative solutions that make a real difference.
             </p>
             
