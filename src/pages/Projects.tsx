@@ -4,10 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ParticleField from "@/components/ParticleField";
 import projectsHero from "@/assets/projects-hero.jpg";
-import customSoftware from "@/assets/solution-custom-software.jpg";
-import mobileApps from "@/assets/solution-mobile-apps.jpg";
-import ecommerce from "@/assets/solution-ecommerce.jpg";
-import cloudSolutions from "@/assets/solution-cloud.jpg";
+import customSoftware from "@/assets/projects/Screenshot (445).png";
+import mobileApps from "@/assets/projects/Screenshot (444).png";
+import ecommerce from "@/assets/projects/Screenshot (443).png";
+import cloudSolutions from "@/assets/projects/Screenshot (442).png";
+import surgery from "@/assets/projects/Screenshot (446).png";
 
 // Animation wrapper component
 const AnimatedSection = ({ children, className = "", delay = 0 }) => {
@@ -89,10 +90,10 @@ const ScrollToTopButton = () => {
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "Modern online shopping platform with advanced features including real-time inventory, AI-powered recommendations, and seamless payment processing.",
+    title: "SMEs Management System",
+    description: "A comprehensive system designed to help small and medium-sized enterprises manage inventory, sales, customers, and finances efficiently.",
     image: ecommerce,
-    technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
+    technologies: ["React", "Spring boot", "PostgreSQL"],
     category: "Web Application",
     status: "Live",
     link: "#",
@@ -101,11 +102,11 @@ const projects = [
   },
   {
     id: 2,
-    title: "Mobile Banking App",
-    description: "Secure mobile banking application with biometric authentication, real-time transactions, and comprehensive financial analytics.",
-    image: mobileApps,
-    technologies: ["React Native", "Firebase", "Blockchain", "ML"],
-    category: "Mobile App",
+    title: "Surgery Tracking System",
+    description: "A healthcare solution for tracking surgeries, managing patient records, scheduling, and ensuring accurate post-operative follow-ups.",
+    image: surgery,
+    technologies: ["React", "Supabase", "MySql"],
+    category: "Healthcare",
     status: "Live",
     link: "#",
     github: "#",
@@ -113,11 +114,11 @@ const projects = [
   },
   {
     id: 3,
-    title: "Cloud Infrastructure Suite",
-    description: "Enterprise-grade cloud management platform for automated deployment, monitoring, and scaling of applications across multiple environments.",
+    title: "Agricommerce Platform",
+    description: "An online platform connecting farmers and traders, enabling seamless buying and selling of agricultural products with secure transactions.",
     image: cloudSolutions,
-    technologies: ["AWS", "Docker", "Kubernetes", "Python"],
-    category: "Cloud Solution",
+    technologies: ["React", "Django", "Python"],
+    category: "Web Application",
     status: "In Development",
     link: "#",
     github: "#",
@@ -125,8 +126,8 @@ const projects = [
   },
   {
     id: 4,
-    title: "Custom CRM System",
-    description: "Tailored customer relationship management system with advanced analytics, automation workflows, and seamless integrations.",
+    title: "Elearning Platform",
+    description: "A digital learning system offering interactive courses, progress tracking, virtual classrooms, and accessible education resources online.",
     image: customSoftware,
     technologies: ["Django", "Vue.js", "Redis", "PostgreSQL"],
     category: "Custom Software",
@@ -136,29 +137,29 @@ const projects = [
     gradient: "from-blue-600/20 to-cyan-500/20"
   },
   {
+    id: 6,
+    title: "Student Portal",
+    description: "A student-focused portal for course registration, exam results, assignments, communication, and overall academic management.",
+    image: mobileApps,
+    technologies: ["Vue.js", "Redis", "PostgreSQL", "Django"],
+    category: "Custom Software",
+    status: "In Development",
+    link: "#",
+    github: "#",
+    gradient: "from-blue-600/20 to-cyan-500/20"
+  },
+  {
     id: 5,
     title: "AI-Powered Analytics Dashboard",
-    description: "Advanced business intelligence platform with machine learning insights, predictive analytics, and real-time data visualization.",
-    image: customSoftware,
-    technologies: ["Python", "TensorFlow", "React", "D3.js"],
+    description: "A smart dashboard providing predictive analytics, real-time data visualization, and AI-driven insights for business decision-making.",
+    image: ecommerce,
+    technologies: ["Python", "TensorFlow", "React"],
     category: "AI Solution",
     status: "Live",
     link: "#",
     github: "#",
     gradient: "from-blue-600/20 to-cyan-500/20"
   },
-  {
-    id: 6,
-    title: "Healthcare Management System",
-    description: "Comprehensive healthcare platform for patient management, appointment scheduling, and secure medical record handling.",
-    image: mobileApps,
-    technologies: ["React", "Node.js", "MongoDB", "HIPAA"],
-    category: "Healthcare",
-    status: "In Development",
-    link: "#",
-    github: "#",
-    gradient: "from-blue-600/20 to-cyan-500/20"
-  }
 ];
 
 const categories = ["All", "Web Application", "Mobile App", "Cloud Solution", "Custom Software", "AI Solution", "Healthcare"];
