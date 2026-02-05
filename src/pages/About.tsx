@@ -3,9 +3,9 @@ import { Users, Target, ArrowRight, Globe, Heart, Eye, Code, Rocket, Mail, Linke
 import { Button } from "@/components/ui/button";
 import heroAbout from "@/assets/hero-about.jpg";
 import teamImage from "@/assets/team-premium.jpg";
-import tombeImg from "@/assets/team/clinton.png";
+import lenah from "@/assets/team/Lenah1.jpg";
 import amosImg from "@/assets/team/clinton.png";
-import kellyImg from "@/assets/team/kelly.png";
+import nipher from "@/assets/team/girl.png";
 
 
 const About = () => {
@@ -65,7 +65,7 @@ const About = () => {
     name: "Amos Clinton",
     role: "Lead Developer",
     bio: "Visionary leader with 3+ years of experience in software architecture and team management.",
-    image: tombeImg,
+    image: amosImg,
     social: {
       linkedin: "https://www.linkedin.com/in/amos-clinton-b65158222/",
       github: "https://github.com/Wanyangu1",
@@ -76,7 +76,7 @@ const About = () => {
     name: "Lenah Barongo",
     role: "Software Developer",
     bio: "Full-stack wizard specializing in React, Django, and cloud infrastructure.",
-    image: amosImg,
+    image: lenah,
     social: {
       linkedin: "#",
       github: "#",
@@ -87,7 +87,7 @@ const About = () => {
   name: "Nipher Akinyi",
   role: "Backend Engineer",
   bio: "Specializes in building robust server-side systems, optimizing databases, and ensuring scalable application.",
-  image: kellyImg,
+  image: nipher,
   social: {
     linkedin: "#",
     dribbble: "#",
