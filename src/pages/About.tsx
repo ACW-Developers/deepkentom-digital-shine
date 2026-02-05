@@ -3,7 +3,7 @@ import { Users, Target, ArrowRight, Globe, Heart, Eye, Code, Rocket, Mail, Linke
 import { Button } from "@/components/ui/button";
 import heroAbout from "@/assets/hero-about.jpg";
 import teamImage from "@/assets/team-premium.jpg";
-import tombeImg from "@/assets/team/ronald.png";
+import tombeImg from "@/assets/team/clinton.png";
 import amosImg from "@/assets/team/clinton.png";
 import kellyImg from "@/assets/team/kelly.png";
 
@@ -62,21 +62,10 @@ const About = () => {
 
   const teamMembers = [
   {
-    name: "Dr. Ronald Tombe",
-    role: "Director & Lead Developer",
+    name: "Amos Clinton",
+    role: "Lead Developer",
     bio: "Visionary leader with 3+ years of experience in software architecture and team management.",
     image: tombeImg,
-    social: {
-      linkedin: "#",
-      twitter: "#",
-      email: "ronaldtombe@gmail.com"
-    }
-  },
-  {
-    name: "Amos Clinton",
-    role: "Software Developer",
-    bio: "Full-stack wizard specializing in React, Django, and cloud infrastructure.",
-    image: amosImg,
     social: {
       linkedin: "https://www.linkedin.com/in/amos-clinton-b65158222/",
       github: "https://github.com/Wanyangu1",
@@ -84,14 +73,25 @@ const About = () => {
     }
   },
   {
-  name: "Kelly Nyachiro",
+    name: "Lenah Barongo",
+    role: "Software Developer",
+    bio: "Full-stack wizard specializing in React, Django, and cloud infrastructure.",
+    image: amosImg,
+    social: {
+      linkedin: "#",
+      github: "#",
+      email: "lenahbarong@gmail.com"
+    }
+  },
+  {
+  name: "Nipher Akinyi",
   role: "Backend Engineer",
   bio: "Specializes in building robust server-side systems, optimizing databases, and ensuring scalable application.",
   image: kellyImg,
   social: {
     linkedin: "#",
     dribbble: "#",
-    email: "Kellynyachiro@gmail.com"
+    email: "nipherakinyi@gmail.com"
   }
 }
 ];
@@ -170,9 +170,9 @@ const About = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {[
-              { icon: Code, number: "500K+", label: "Lines of Code", color: "text-cyan-200" },
+              { icon: Code, number: "50K+", label: "Lines of Code", color: "text-cyan-200" },
               { icon: Users, number: "98%", label: "Client Satisfaction", color: "text-cyan-200" },
-              { icon: Rocket, number: "7+", label: "Projects Completed", color: "text-cyan-200" },
+              { icon: Rocket, number: "5+", label: "Projects Completed", color: "text-cyan-200" },
               { icon: Globe, number: "2+", label: "Countries Served", color: "text-cyan-200" }
             ].map((stat, index) => (
               <div 
